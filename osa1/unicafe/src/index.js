@@ -35,15 +35,7 @@ const Statistics = (props) => {
       <Statistic text="positive" value ={positiiviset} />
   
       </table>
-   
-    /*<div>
-    <p>good {props.good}</p>
-    <p>neutral {props.neutral}</p>
-    <p>bad {props.bad}</p>
-    <p>all {props.allClicks.length}</p>  
-    <p>average {keskari}</p> 
-    <p>positive {positiiviset} %</p>           
-</div> */
+
     
     )
     
