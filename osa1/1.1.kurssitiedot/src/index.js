@@ -16,16 +16,16 @@ const App = () => {
       },
       {
         name: 'State of a component',
-        exercises:14
+        exercises: 14
       }
     ]  
   }
 
   return (
     <div>
-    <Header course={parts} />
-    <Content parts={parts} />
-    <Total parts={parts} />
+    <Header course={course.name} />
+    <Content parts={course.parts} />
+    <Total parts={course.parts} />
   </div>
 
   )
@@ -36,19 +36,27 @@ const Header=(props)=>{
     return <h1>{props.course}</h1>
 }
 
-const Content=()=>{
+const Content=(props)=>{
     return  (
         <div>
-          <Part/>
-          <Part/>
-          <Part/>
+          <Part osa={props.parts[0]}/>
+          <Part osa={props.parts[1]}/>
+          <Part osa={props.parts[2]}/>
         </div>
       )
 }
 
-const Total=()=>{
-    return
+const Total=(props)=>{
+    let summa=props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises
+    console.log(summa)
+    
+    return <p>Yhteensä: {summa}</p>
 }
 
+const Part=(props)=>{
+  return (
+    <div><p>{props.osa.name}, {props.osa.exercises} kpl tehtäviä</p></div>
+    )
+}
 
 ReactDOM.render(<App />, document.getElementById('root'))
