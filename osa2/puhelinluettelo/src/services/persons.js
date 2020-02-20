@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 
-
+//json-server --watch db.json
 const baseUrl = 'http://localhost:3001/persons'
 
 const getAll = async () => {

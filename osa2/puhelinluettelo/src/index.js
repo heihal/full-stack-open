@@ -86,7 +86,11 @@ const App = () => {
    
   }
   const poistaTyyppi= (id)=>{
+  
+     
+    
     const ihminen = persons.find(n => n.id === id)
+    if (window.confirm(`Poistetaanko '${ihminen.name}' `)) { 
     const uudetTyypit = persons.filter(item => item.id !== id);
     tyyppiService
     .del(id)
@@ -103,7 +107,7 @@ const App = () => {
     setErrorMessage(`Deleted '${ihminen.name}'`)
     setTimeout(() => {setErrorMessage(null)}, 5000)
     
-    
+}
   }
    
   
