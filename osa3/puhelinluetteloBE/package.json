@@ -1,0 +1,20 @@
+{
+  "name": "puhelinluettelo",
+  "version": "0.0.1",
+  "description": "\"part3\"",
+  "main": "indexBE.js",
+  "scripts": {
+    "start": "node indexBE.js",
+    "dev": "nodemon indexBE.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hemhal",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
