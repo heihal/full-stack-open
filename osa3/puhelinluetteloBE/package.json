@@ -2,11 +2,17 @@
   "name": "puhelinluettelo",
   "version": "0.0.1",
   "description": "\"part3\"",
-  "main": "indexBE.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node indexBE.js",
-    "dev": "nodemon indexBE.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf build && cd ~/Documents/fullstackopen/osa3/puhelinluetteloFE
+    && npm run build --prod && cp -r build ~/Documents/fullstackopen/osa3/puhelinluetteloBE
+    ",
+    "deploy": "git push heroku master",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",    
+    "logs:prod": "heroku logs --tail"
   },
   "author": "hemhal",
   "license": "ISC",

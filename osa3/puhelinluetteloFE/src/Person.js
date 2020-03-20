@@ -3,7 +3,7 @@ import React from 'react'
 
 
 
-const Persons=({persons,poistaTyyppi})=>{
+const Person=({persons,poistaTyyppi})=>{
         return (
         <div>
           <Lista ihmiset = {persons} poistaTyyppi= {poistaTyyppi}/>
@@ -24,4 +24,4 @@ const Lista =({ihmiset,poistaTyyppi})=>{
         
         }
 
-export default Persons
+export default Person
