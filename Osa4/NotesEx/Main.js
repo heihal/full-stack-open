@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, SafeAreaView, TouchableOpacity, FlatList, AsyncStorage } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, TouchableOpacity, FlatList, AsyncStorage,Alert } from 'react-native';
 import Note from './Note'
 import Constants from 'expo-constants';
 
@@ -56,10 +56,15 @@ export class Main extends Component {
   addNote = noteText => {
     const text = noteText
     if (text !== '') {
-    
-      if(this.state.notes.map(e=> { if ( e.content == text) return false} ))
-        this.createTwoButtonAlert
+     
+      if(this.state.notes.some(x=>x.content === text) ){
+        
+        console.log(this.state.notes.find(n => n.content === text));
         console.log('alerttia pukkaa');
+        alert('alerttia pukkaa')
+  
+
+
       }
 
       const ID = Math.floor(Math.random() * Math.floor(100)).toString()
@@ -70,30 +75,20 @@ export class Main extends Component {
       this.saveValue(noteObj)
 
     }
+  }
   
 
   onPressAddButton = () => {
     this.props.navigation.navigate('AddNote', { 'addNewNote': this.addNote })
   }
 
+  showAlert=()=>{
+    Alert.alert('Warning','Duplicate note?')
+  }
 
-  createTwoButtonAlert = () =>{
-  Alert.alert(
-    "AlertALERT",
-    "Note seems to be duplicate. Save anyway?",
-    [
-      {
-        text: "Cancel",
-        onPress: () => resume,
-        
-      },
-      { text: "OK", onPress: () => this.onPressAddButton }
-    ],
-    { cancelable: false }
-  );}
 
   render() {
-    console.log(this.state.notes);
+   
     const data = this.state.notes
     return (
 

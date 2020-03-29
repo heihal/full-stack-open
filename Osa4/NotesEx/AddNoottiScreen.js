@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity, TextInput,FlatList} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
 import Constants from 'expo-constants';
 
 
@@ -9,40 +8,32 @@ import Constants from 'expo-constants';
 export default class AddNoottiScreen extends Component {
   constructor(props) {
     super(props);
-   
+
     this.state = {
-     note:''
+      note: ''
     };
   }
 
+  addNote = () => {
 
-
- 
-  addNote=()=>{
-  
-    const {note} = this.state;
+    const { note } = this.state;
     this.props.route.params.addNewNote(note)
     this.props.navigation.goBack()
   }
 
+
+
   render() {
-   
-    
     return (
       <View style={styles.container}>
-        
-       
+        <TextInput style={styles.textin}
 
-          <TextInput  style={styles.textin}
-          
-          placeholder = "Write a note here"
-          onChangeText={(text) => this.setState({note:text})} 
-          />
-         <TouchableOpacity onPress ={ this.addNote }>
-            <Text style={styles.button} >Submit</Text>   
-          </TouchableOpacity>
-        
-     
+          placeholder="Write a note here"
+          onChangeText={(text) => this.setState({ note: text })}
+        />
+        <TouchableOpacity onPress={this.addNote }>
+          <Text style={styles.button} >Submit</Text>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -51,12 +42,10 @@ export default class AddNoottiScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-   
     marginTop: Constants.statusBarHeight,
-  
-    
+
   },
-  textin:{
+  textin: {
     flex: 1,
     marginTop: 14,
     fontSize: 32,
@@ -64,10 +53,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: "stretch",
   },
- 
-  
-   button: {
-     
+  button: {
     fontSize: 32,
     alignItems: "center",
     justifyContent: 'center',

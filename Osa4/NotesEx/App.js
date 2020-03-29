@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Main from './Main'
 import AddNoottiScreen from './AddNoottiScreen';
-import AddNoottiScreen2 from './AddNoottiScreen2';
+
 
 
 
